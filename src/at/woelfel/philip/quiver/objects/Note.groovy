@@ -1,5 +1,8 @@
 package at.woelfel.philip.quiver.objects
 
+import groovy.transform.Sortable
+
+@Sortable(excludes = ['tags', 'cells'])
 class Note {
 	
 	// a .qvnote file
@@ -13,7 +16,7 @@ class Note {
 	Date updated
 	
 	def tags = []
-	def cells = []
+	List<Cell> cells = []
 
 
 	public String toString(){

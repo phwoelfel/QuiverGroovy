@@ -1,5 +1,8 @@
 package at.woelfel.philip.quiver.objects
 
+import groovy.transform.Sortable
+
+@Sortable
 class Cell {
 	public enum Type{
 		TEXT,
@@ -11,7 +14,7 @@ class Cell {
 
 	Type type
 	
-	def data
+	String data
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder()
