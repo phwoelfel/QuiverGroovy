@@ -7,3 +7,4 @@ doc
 .idea/tasks.xml
 .idea/gradle.xml
 .idea/artifacts
+*.class
