@@ -8,11 +8,34 @@ import org.apache.log4j.Logger
 class NotebookImporter {
 	static Logger log = Logger.getRootLogger()
 
+	def static Library readLibrary(String file){
+		return readLibrary(new File(file))
+	}
+	
+	def static Library readLibrary(File libFile){
+		log.debug("trying to read library $libFile.name")
+		if(libFile.isDirectory() && libFile.name.endsWith(".qvlibrary")){
+			Library lib = new Library()
+			lib.folder = libFile
+			libFile.eachDir{ nbd ->
+				log.debug("reading notebook $nbd")
+				lib.notebooks.add(NotebookImporter.readNotebook(nbd))
+			}
+			
+			return lib
+		}
+		else{
+			log.error("Invalid library given!")
+			throw new QuiverException("Invalid library given!")
+		}
+	}
+	
 	def static Notebook readNotebook(String file){
 		return readNotebook(new File(file))
 	}
 	
 	def static Notebook readNotebook(File nbFile){
+		log.debug("trying to read notebook $nbFile.name")
 		if(nbFile.isDirectory() && nbFile.name.endsWith(".qvnotebook")){
 			// got a notebook
 			File nbMetaFile = new File("${nbFile.getPath()}${File.separator}meta.json");
@@ -72,7 +95,8 @@ class NotebookImporter {
 									break
 
 								case "diagram":
-										cell = new DiagramCell()
+									cell = new DiagramCell()
+									
 									break
 
 							}
