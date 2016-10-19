@@ -8,5 +8,5 @@
 	<classpathentry exported="true" kind="con" path="GROOVY_SUPPORT"/>
 	<classpathentry exported="true" kind="con" path="GROOVY_DSL_SUPPORT"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_45"/>
-	<classpathentry kind="output" path="out/production/QuiverGroovy"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

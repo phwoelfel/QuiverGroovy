@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="QuiverGroovy">
+	<!--this file was created by Eclipse Runnable JAR Export Wizard-->
+	<!--ANT 1.7 is required                                        -->
+
+	<property name="groovy.lib" value="${GROOVY_LIB}" />
+	<property name="project.version" value="1.0-beta" />
+	<property name="project.name" value="QuiverGroovy" />
+
+	<target name="create_run_jar">
+		<jar destfile="${project.name}-${project.version}.jar" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Main-Class" value="at.woelfel.philip.quiver.main.QuiverGroovyMain" />
+				<attribute name="Class-Path" value="." />
+			</manifest>
+			<fileset dir="bin" />
+
+			<zipfileset excludes="META-INF/*.SF" src="${groovy.lib}/groovy-all-current.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/log4j-1.2.17.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/log4j-api-2.6.1.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/log4j-core-2.6.1.jar" />
+			<zipfileset excludes="META-INF/*.SF" src="lib/jsyntaxpane-1.1.4.jar" />
+			
+			
+		</jar>
+	</target>
+
+</project>
