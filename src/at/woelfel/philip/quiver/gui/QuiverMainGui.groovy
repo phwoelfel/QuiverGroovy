@@ -23,7 +23,9 @@ class QuiverMainGui extends JFrame {
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
-		log.info("choooseee")
+		
+		
+		fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES)
 		int ret = fc.showOpenDialog(null)
 		if(ret == JFileChooser.APPROVE_OPTION){
 			File f = fc.getSelectedFile()
